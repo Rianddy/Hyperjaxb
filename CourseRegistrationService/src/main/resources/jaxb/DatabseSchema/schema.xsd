@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp1 (x64) (http://www.altova.com) by Rui Cai (University of pittsburgh) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="class">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Cls_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Cos_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Max_Size" default="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Max_WaitList" default="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Cur_Size" default="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Cur_WaitList" default="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Open_Sem_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Fac_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="studentenrollment" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="class_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Cls_ID"/>
+		</xs:key>
+		<xs:keyref name="studentenrollment_ForeignKey_2" refer="class_PrimaryKey_1">
+			<xs:selector xpath="studentenrollment"/>
+			<xs:field xpath="Cls_ID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="concentration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Conc_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Maj_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="course" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="student" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="concentration_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Conc_ID"/>
+		</xs:key>
+		<xs:keyref name="course_ForeignKey_2" refer="concentration_PrimaryKey_1">
+			<xs:selector xpath="course"/>
+			<xs:field xpath="Conc_ID"/>
+		</xs:keyref>
+		<xs:keyref name="student_ForeignKey_1" refer="concentration_PrimaryKey_1">
+			<xs:selector xpath="student"/>
+			<xs:field xpath="Conc_ID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="course">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Cos_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Dep_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Maj_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Conc_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Description" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Credits">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Status" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="class" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="prerequestment" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="course_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Cos_ID"/>
+		</xs:key>
+		<xs:keyref name="class_ForeignKey_1" refer="course_PrimaryKey_1">
+			<xs:selector xpath="class"/>
+			<xs:field xpath="Cos_ID"/>
+		</xs:keyref>
+		<xs:keyref name="prerequestment_ForeignKey_1" refer="course_PrimaryKey_1">
+			<xs:selector xpath="prerequestment"/>
+			<xs:field xpath="Cos_ID"/>
+		</xs:keyref>
+		<xs:keyref name="prerequestment_ForeignKey_2" refer="course_PrimaryKey_1">
+			<xs:selector xpath="prerequestment"/>
+			<xs:field xpath="Pre_Cos_ID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="department">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Dep_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Address" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Dean_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="course" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="faculty" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="major" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="student" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="department_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Dep_ID"/>
+		</xs:key>
+		<xs:keyref name="course_ForeignKey_3" refer="department_PrimaryKey_1">
+			<xs:selector xpath="course"/>
+			<xs:field xpath="Dep_ID"/>
+		</xs:keyref>
+		<xs:keyref name="faculty_ForeignKey_1" refer="department_PrimaryKey_1">
+			<xs:selector xpath="faculty"/>
+			<xs:field xpath="Dep_ID"/>
+		</xs:keyref>
+		<xs:keyref name="major_ForeignKey_1" refer="department_PrimaryKey_1">
+			<xs:selector xpath="major"/>
+			<xs:field xpath="Dep_ID"/>
+		</xs:keyref>
+		<xs:keyref name="student_ForeignKey_3" refer="department_PrimaryKey_1">
+			<xs:selector xpath="student"/>
+			<xs:field xpath="Dep_ID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="faculty">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Fac_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Status">
+					<xs:simpleType>
+						<xs:restriction base="xs:unsignedLong">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="9223372036854775807"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Email">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Cell" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="25"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Dep_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="class" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="department" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="permission" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="faculty_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Fac_ID"/>
+		</xs:key>
+		<xs:keyref name="class_ForeignKey_3" refer="faculty_PrimaryKey_1">
+			<xs:selector xpath="class"/>
+			<xs:field xpath="Fac_ID"/>
+		</xs:keyref>
+		<xs:keyref name="department_ForeignKey_1" refer="faculty_PrimaryKey_1">
+			<xs:selector xpath="department"/>
+			<xs:field xpath="Dean_ID"/>
+		</xs:keyref>
+		<xs:keyref name="permission_ForeignKey_2" refer="faculty_PrimaryKey_1">
+			<xs:selector xpath="permission"/>
+			<xs:field xpath="Fac_ID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="major">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Maj_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Dep_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="concentration" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="course" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="student" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="major_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Maj_ID"/>
+		</xs:key>
+		<xs:keyref name="concentration_ForeignKey_1" refer="major_PrimaryKey_1">
+			<xs:selector xpath="concentration"/>
+			<xs:field xpath="Maj_ID"/>
+		</xs:keyref>
+		<xs:keyref name="course_ForeignKey_1" refer="major_PrimaryKey_1">
+			<xs:selector xpath="course"/>
+			<xs:field xpath="Maj_ID"/>
+		</xs:keyref>
+		<xs:keyref name="student_ForeignKey_2" refer="major_PrimaryKey_1">
+			<xs:selector xpath="student"/>
+			<xs:field xpath="Maj_ID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="permission">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Perms_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Stu_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Fac_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Status" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string"/>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="permission_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Perms_ID"/>
+		</xs:key>
+	</xs:element>
+	<xs:element name="prerequestment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PreReq_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Cos_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Pre_Cos_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="prerequestment_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="PreReq_ID"/>
+		</xs:key>
+	</xs:element>
+	<xs:element name="semester">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Sem_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Short_Name">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Start_Date">
+					<xs:simpleType>
+						<xs:restriction base="xs:date">
+							<xs:minInclusive value="1000-01-01"/>
+							<xs:maxInclusive value="9999-12-31"/>
+							<xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="End_Date">
+					<xs:simpleType>
+						<xs:restriction base="xs:date">
+							<xs:minInclusive value="1000-01-01"/>
+							<xs:maxInclusive value="9999-12-31"/>
+							<xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Add_Drop_Date">
+					<xs:simpleType>
+						<xs:restriction base="xs:date">
+							<xs:minInclusive value="1000-01-01"/>
+							<xs:maxInclusive value="9999-12-31"/>
+							<xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="class" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="semester_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Sem_ID"/>
+		</xs:key>
+		<xs:keyref name="class_ForeignKey_2" refer="semester_PrimaryKey_1">
+			<xs:selector xpath="class"/>
+			<xs:field xpath="Open_Sem_ID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="student">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Stu_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Name">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Email">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Dep_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Maj_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Conc_ID" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Birthday" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:date">
+							<xs:minInclusive value="1000-01-01"/>
+							<xs:maxInclusive value="9999-12-31"/>
+							<xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Address" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="250"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Cell" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="25"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="permission" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="studentenrollment" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="student_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Stu_ID"/>
+		</xs:key>
+		<xs:keyref name="permission_ForeignKey_1" refer="student_PrimaryKey_1">
+			<xs:selector xpath="permission"/>
+			<xs:field xpath="Stu_ID"/>
+		</xs:keyref>
+		<xs:keyref name="studentenrollment_ForeignKey_1" refer="student_PrimaryKey_1">
+			<xs:selector xpath="studentenrollment"/>
+			<xs:field xpath="Stu_ID"/>
+		</xs:keyref>
+	</xs:element>
+	<xs:element name="studentenrollment">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Stu_Enroll_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Stu_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Cls_ID">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Grade" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string"/>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Score" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Status" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string"/>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Stu_Enroll_Time">
+					<xs:simpleType>
+						<xs:restriction base="xs:dateTime">
+							<xs:minInclusive value="0001-01-01T00:00:00.000000000"/>
+							<xs:maxInclusive value="9999-12-31T23:59:59.000000000"/>
+							<xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}T\p{Nd}{2}:\p{Nd}{2}:\p{Nd}{2}.\p{Nd}{1}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="studentenrollment_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="Stu_Enroll_ID"/>
+		</xs:key>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,15 @@
+generated\Prerequestment.class
+generated\Semester.class
+generated\Course.class
+generated\Department.class
+generated\Permission.class
+generated\Faculty.class
+com\upittis2739\courseregistration\common\Constants.class
+generated\Concentration.class
+generated\Major.class
+generated\Student.class
+com\upittis2739\courseregistration\common\Constants$perm_status.class
+generated\ObjectFactory.class
+generated\Studentenrollment.class
+generated\Class.class
+com\upittis2739\courseregistration\common\HinberateUtill.class

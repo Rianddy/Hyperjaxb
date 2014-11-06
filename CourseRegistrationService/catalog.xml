@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Users/riand_000/Documents/NetBeansProjects/CourseRegistration/CourseRegistrationService/../../../GitHub/CourseRegistration/Related%20Desgin%20Files%20and%20Instructions/XMLSchemaPartOne_RuitingYi/XmlSchema/studentXmlSchema.xsd" uri="src/main/resources/jaxb/StudentInfo/studentXmlSchema.xsd"/>
+    <system systemId="file:/C:/Users/riand_000/Documents/NetBeansProjects/CourseRegistration/CourseRegistrationService/../schema.xsd" uri="src/main/resources/jaxb/DatabseSchema/schema.xsd"/>
+</catalog>
